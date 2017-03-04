@@ -1,18 +1,89 @@
-<html>
+<!DOCTYPE html>
+<html lang="en">
 	<head>
+	<meta charset="UTF-8">
+	<title>GMail Coding Challenge</title>
 		<script src="js/mail-generator.js"></script>
 		<link href="css/style.css" rel="stylesheet" media="screen">
     <script>
       window.onload = function(){
         // ALL OF YOUR JAVASCRIPT CODE SHOULD GO HERE. 
         // We have to use window.onload so your JavaScript doesn't execute until the page has loaded and all HTML has been downloaded to your browser
-        
-      };
+
+        for (var i=0; i<window.geemails.length; i++){
+     	console.log(window.geemails[i].sender);
+     	console.log(window.geemails[i].body);
+     	console.log(window.geemails[i].date);
+     	console.log(window.geemails[i].subject);
+     	};
+     	console.log(window.geemails);
+     	
+     	for (var i=0; i<window.geemails.length; i++){	
+     	var mainDiv = document.getElementById("main");	
+     	var emailBody = document.createElement("div");
+     	emailBody.innerHTML = window.geemails[i].body;
+     	mainDiv.appendChild(emailBody);
+
+     	var mainDiv = document.getElementById("main");
+     	var emailSender = document.createElement("div");
+     	emailSender.innerHTML = window.geemails[i].sender;
+     	mainDiv.appendChild(emailSender);
+
+     	var mainDiv = document.getElementById("main");
+     	var emailDate = document.createElement("div");
+     	emailDate.innerHTML = window.geemails[i].date;
+     	mainDiv.appendChild(emailDate);
+
+     	var mainDiv = document.getElementById("main");
+     	var emailSubject = document.createElement("div");
+     	emailSubject.innerHTML = window.geemails[i].subject;
+     	mainDiv.appendChild(emailSubject);
+     };
+
+/* var obj = {id : "007", name : "James Bond"};
+console.log(obj);                    // Object { id: "007", name: "James Bond" }
+console.log(JSON.stringify(obj));    //{"id":"007","name":"James Bond"}
+if (obj.hasOwnProperty("id")){
+    console.log(obj.id);             //007
+}
+
+/*var emails = document.getElementsByClassName("mailmsg");
+	document.getElementById("body");
+	console.log(window.body); */
+
+
+
+      /*  var  window.geemails = 
+        [ 
+        	{
+        		date: xxx,
+        		subject: xxx,
+        		sender: xxx,
+        		body: xxx,
+        	},
+        ];
+ 	};
+ 				console.log(window.geemails); */
+ 	};			
+
     </script>
 	</head>
 	<body>
+		<header>
+    	<h1>2017 G-Mail Challenge</h1>
+  		</header>
 		<div class="container" id="main">
 			Build Me!
+		<!-- <script>console.log(window.geemails);</script> -->
+
+      	<!-- <div class="mailmsg"><img src="" alt=""> -->
+        
+        </div>
+		
+
+	
 		</div>
+	<!-- <script type="text/javascript"></script> -->
 	</body>
 </html>
+

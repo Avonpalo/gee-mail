@@ -1,0 +1,26 @@
+/* 
+body{
+	background-color: yellow;
+}
+*/
+header/* , #footer */{
+  background-image: url("http://cdn.shopify.com/s/files/1/0157/0654/products/Honu_20Partners_20Art_20Print_large.jpeg?v=1337132677");
+  background-repeat: no-repeat;
+  padding-top: 50px;
+  padding-bottom: 50px;
+  opacity: 0.8;
+  
+}
+
+/*
+.clearfix {
+    overflow: auto;
+}
+*/
+
+h1{
+  text-align: center;
+  font-weight: bold;
+  color:  white/* #0000ff */;
+  font-family: 'Bungee Shade', cursive;
+}
