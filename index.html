@@ -10,57 +10,76 @@
         // ALL OF YOUR JAVASCRIPT CODE SHOULD GO HERE. 
         // We have to use window.onload so your JavaScript doesn't execute until the page has loaded and all HTML has been downloaded to your browser
 
+      var needALine = ("===========================");
+
         for (var i=0; i<window.geemails.length; i++){
      	console.log(window.geemails[i].date);
      	console.log(window.geemails[i].sender);
      	console.log(window.geemails[i].subject);
      	console.log(window.geemails[i].body);
-     	}
+     	console.log(needALine);
+      }
      	//console.log(window.geemails);
      	
      	for (var i=0; i<window.geemails.length; i++){ 
-     	var mainDiv = document.getElementById("main");	
-     	var emailBody = document.createElement("div");
-     	emailBody.innerHTML = window.geemails[i].body;
-     	mainDiv.appendChild(emailBody);
      	
-   		var mainDiv = document.getElementById("main");
-     	var emailDate = document.createElement("div");
-     	emailDate.innerHTML = window.geemails[i].date;
-     	mainDiv.appendChild(emailDate);
+      var mainDiv = document.getElementById("main");
+      var emailSubject = document.createElement("div");
+      emailSubject.innerHTML = window.geemails[i].subject;
+      mainDiv.appendChild(emailSubject);
+      
+      var mainDiv = document.getElementById("main");
+      var emailSender = document.createElement("div");
+      emailSender.innerHTML = window.geemails[i].sender;
+      mainDiv.appendChild(emailSender);
 
-     	var mainDiv = document.getElementById("main");
-     	var emailSender = document.createElement("div");
-     	emailSender.innerHTML = window.geemails[i].sender;
-     	mainDiv.appendChild(emailSender);
+      var mainDiv = document.getElementById("main");
+      var emailDate = document.createElement("div");
+      emailDate.innerHTML = window.geemails[i].date;
+      mainDiv.appendChild(emailDate);
 
-     	var mainDiv = document.getElementById("main");
-     	var emailSubject = document.createElement("div");
-     	emailSubject.innerHTML = window.geemails[i].subject;
-     	mainDiv.appendChild(emailSubject);
-  
-		var hElem = document.getElementsByClassName("email");
-		for (var i=0; i<hElem.length; i++){
-		hElem[i].addEventListener("click", showHide);
-		
+      var mainDiv = document.getElementById("main");
+      var emailBody = document.createElement("div");
+      emailBody.setAttribute("class", "bodyClass");
+      emailBody.appendChild(document.createTextNode(window.geemails[i].body));
+      mainDiv.appendChild(emailBody);
+
+     /*
+      var divElem = document.getElementsByClassName("name");
+        //console.log (hElem.length);
+      for (var i=0; i<divElem.length; i++){
+      hElem[i].addEventListener("click", secretMenu);
+        //console.log(hElem);
+}
+
+      function secretMenu(){
+      var menuElem = this.querySelectorAll(".menu")[0];
+        if (menuElem.style.display === "none"){
+          menuElem.style.display = "block";
+        }else{
+          menuElem.style.display = "none";
+    }
+
+}
+    */
+      var mainDiv = document.getElementById("main");
+      var separator = document.createElement("div");
+      separator.id = "separateLines";
+      separator.innerHTML = "===========================";
+      mainDiv.appendChild(separator);
+
+
+
 		}
 
-		function showHide(){
-		var menuElem = this.querySelectorAll(".body")[0];
-		if (menuElem.style.display === "none"){
-			menuElem.style.display = "block";
-		}else{
-			menuElem.style.display = "none";
-		}
-							}
-  }   
 
-  } ;  
+  }; 
 
-		setInterval(getNewMessage, 6000);
-
-
- 				
+  	
+/*
+    setInterval(getNewMessage(), 6000);
+*/
+	
 
     </script>
 	</head>
@@ -70,23 +89,17 @@
   		</header>
 		<div class="container" id="main">
 			<!-- Build Me! -->
-		<!-- <script>console.log(window.geemails);</script> -->
+	
 		<h4 id = "inbox count">Inbox-Current Number of Messages: </h4>
 
+
+
+
         </div>
-		
 
 
-		<script>
-			function change(id,vis){
-			document.getElementById (id).style.display=vis;
-			}
-		</script>
 
-		<div style="display:inline" id="super" onclick="change ('qu','block');change ('super','none');">+ Qui</div>
-		<div style="display:none" id="qu" onclick="change ('super','inline');change ('qu','none');">- Ans</div>
-
-
+<!--
 		<div id="main">
    			
    			<h2 class="email">
@@ -140,10 +153,10 @@
    			</h2>
 
   		</div>
-
+-->
 </body>
 
 	<!-- <script type="text/javascript"></script> -->
-	</body>
+
 </html>
 
