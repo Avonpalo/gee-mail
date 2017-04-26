@@ -24,61 +24,96 @@
 
      	for (var i=0; i<window.geemails.length; i++){ 
 
+      
       var mainDiv = document.getElementById("main");
+      
+
+      /*
       var emailSubject = document.createElement("div");
+      emailSubject.setAttribute("class", "subjectClass");
       emailSubject.innerHTML = window.geemails[i].subject;
       mainDiv.appendChild(emailSubject);
       
 
       var emailSender = document.createElement("div");
+      emailSender.setAttribute("class", "senderClass");
       emailSender.innerHTML = window.geemails[i].sender;
       mainDiv.appendChild(emailSender);
 
  
       var emailDate = document.createElement("div");
+      emailDate.setAttribute("class", "dateClass");
       emailDate.innerHTML = window.geemails[i].date;
       mainDiv.appendChild(emailDate);
 
-
+      
       var emailBody = document.createElement("div");
       emailBody.setAttribute("id", "bodyId");
       emailBody.setAttribute("class", "bodyClass");
+      emailBody.innerHTML = window.geemails[i].body;
       emailBody.appendChild(document.createTextNode(window.geemails[i].body));
       mainDiv.appendChild(emailBody);
-
-
-      var button = document.createElement("INPUT");
-      button.setAttribute("id", "buttonBody");
-      button.setAttribute("type", "button");
-      button.setAttribute("value", "Show/Hide Msg.");
-      mainDiv.appendChild(button);
-
-      /*
-      function myFunction() {
-    var x = document.createElement("INPUT");
-    x.setAttribute("type", "button");
-    x.setAttribute("value", "Click me");
-    document.body.appendChild(x);
-}
       
-      var divElem = document.getElementsByClassName("bodyClass");
-      for (var i=0; i<divElem.length; i++){
-        divElem[i].addEventListener("click", showHide);
-
-      }
-      
-      
-
-      function showHide(){
-      var bodyElem = document.getElementById("bodyId");
-        if (bodyElem.style.visibility === "hidden"){
-          bodyElem.style.visibility = "visible";
-        }else{
-          bodyElem.style.visibility = "hidden";
-    }
-
-}
       */
+  
+  var emailSender = document.createElement("p");
+  emailSender.className = "senderClass";
+  emailSender.innerHTML = window.geemails[i].sender;
+  mainDiv.appendChild(emailSender);
+
+  var emailDate = document.createElement("p");
+  emailDate.className = "dateClass";
+  emailDate.innerHTML = window.geemails[i].date;
+  mainDiv.appendChild(emailDate);
+ 
+
+
+/*
+      for(var i = 0; i<window.geemails.length; i++){
+*/
+
+
+  var bodyShowHide = document.createElement("p");
+  bodyShowHide.className = "bodyCssElem";
+  main.appendChild(bodyShowHide);
+ 
+ 
+  var subjShowHide = document.createElement("p");
+  subjShowHide.className = "subj";
+  subjShowHide.innerHTML = window.geemails[i].subject;
+  bodyShowHide.appendChild(subjShowHide);
+
+  
+  var bodySH = document.createElement("p");
+  bodySH.className = "bodySH";
+  bodySH.innerHTML = window.geemails[i].body;
+  subjShowHide.appendChild(bodySH);
+  
+  
+
+  /*
+  bodySH.style.display = "none";
+  */
+
+  
+ 
+
+
+var sHElem = document.getElementsByClassName("subj");
+
+for(var i = 0; i<sHElem.length; i++){
+  sHElem[i].addEventListener("click", showHide);
+}
+
+function showHide(){
+  var displayBody = this.querySelectorAll(".bodySH")[0];
+  if(displayBody.style.display === "none"){
+     displayBody.style.display = "block";
+     }else{
+       displayBody.style.display = "none";
+     }
+}
+
 
 
       var separator = document.createElement("div");
@@ -86,16 +121,37 @@
       separator.innerHTML = "===========================";
       mainDiv.appendChild(separator);
 
+}
+
+		};
+
+ 
+ 
+      /*
+
+        setInterval(getNewMessage(), 6000);
+
+      */
+
+      /*
+
+      function getNewMsg() {
+
+        setInterval(getNewMessage(), 6000);
+          console.log(window.getNewMessage.date);
+          console.log(window.getNewMessage.sender);
+          console.log(window.getNewMessage.subject);
+          console.log(window.getNewMessage.body);
+          console.log(window.getNewMessage.separator);
+      
+      }
+      
+      console.log(getNewMsg());
+      
+      */
+      
 
 
-		}
-
-
-  }; 
-
-  
-      setInterval(getNewMessage(), 6000);	
-  
 
 
     </script>
@@ -115,46 +171,10 @@
     </div>
 
 
-
-      
-    <button onclick="showHide()">Show/Hide Msg.</button>
-    
-
-    <script>
-     
-     function showHide(){
-      var bodyElem = document.getElementById("bodyId");
-        if (bodyElem.style.visibility === "hidden"){
-          bodyElem.style.visibility = "visible";
-        }else{
-          bodyElem.style.visibility = "hidden";
-    }
-
-  } 
-
     </script>
 
 
-<!--
-<script language="javascript"> 
-    function toggle() {
-        var ele = document.getElementById("bodyId");
-        var text = document.getElementById("displayText");
-          if  (ele.style.display == "block") {
-               ele.style.display = "none";
-               text.innerHTML = "Show Msg.";
-          }
-          else {
-               ele.style.display = "block";
-               text.innerHTML = "Hide Msg.";
-          }
-  } 
-</script>
- 
-<a id="displayText" href="javascript:toggle();">show</a>
-<div id="toggleText" style="display: none"></div>
 
--->
 
 
 </body>
