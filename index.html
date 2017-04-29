@@ -6,6 +6,16 @@
 		<script src="js/mail-generator.js"></script>
 		<link href="css/style.css" rel="stylesheet" media="screen">
     <script>
+     
+     function showHide(){
+      var displayBody = this.querySelectorAll(".bodySH")[0];
+        if(displayBody.style.display === "none"){
+        displayBody.style.display = "block";
+        }else{
+        displayBody.style.display = "none";
+     }
+} 
+
       window.onload = function(){
         // ALL OF YOUR JAVASCRIPT CODE SHOULD GO HERE. 
         // We have to use window.onload so your JavaScript doesn't execute until the page has loaded and all HTML has been downloaded to your browser
@@ -67,10 +77,10 @@
   mainDiv.appendChild(emailDate);
  
 
-
 /*
       for(var i = 0; i<window.geemails.length; i++){
 */
+
 
 
   var bodyShowHide = document.createElement("p");
@@ -88,15 +98,6 @@
   bodySH.className = "bodySH";
   bodySH.innerHTML = window.geemails[i].body;
   subjShowHide.appendChild(bodySH);
-  
-  
-
-  /*
-  bodySH.style.display = "none";
-  */
-
-  
- 
 
 
 var sHElem = document.getElementsByClassName("subj");
@@ -105,6 +106,8 @@ for(var i = 0; i<sHElem.length; i++){
   sHElem[i].addEventListener("click", showHide);
 }
 
+
+/*
 function showHide(){
   var displayBody = this.querySelectorAll(".bodySH")[0];
   if(displayBody.style.display === "none"){
@@ -113,10 +116,11 @@ function showHide(){
        displayBody.style.display = "none";
      }
 }
+*/
 
 
-
-      var separator = document.createElement("div");
+      var separator = document.createElement("p");
+      separator.className = "line";
       separator.id = "separateLines";
       separator.innerHTML = "===========================";
       mainDiv.appendChild(separator);
@@ -126,6 +130,9 @@ function showHide(){
 		};
 
  
+
+
+
  
       /*
 
@@ -133,24 +140,32 @@ function showHide(){
 
       */
 
-      /*
+      
+/*
+      
+      var newMsg;
 
       function getNewMsg() {
 
-        setInterval(getNewMessage(), 6000);
-          console.log(window.getNewMessage.date);
-          console.log(window.getNewMessage.sender);
-          console.log(window.getNewMessage.subject);
-          console.log(window.getNewMessage.body);
-          console.log(window.getNewMessage.separator);
+         newMsg = setInterval(getNewMessage(), 6000);
       
       }
       
-      console.log(getNewMsg());
       
-      */
+*/      
       
+   /*
+   var myVar;
 
+function myFunction() {
+    myVar = setInterval(alertFunc, 3000);
+}
+
+function alertFunc() {
+    alert("Hello!");
+}
+
+  */
 
 
 
